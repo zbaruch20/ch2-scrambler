@@ -16,7 +16,6 @@ export function GET(request: NextRequest) {
   // parse and validate query params
   const params = request.nextUrl.searchParams;
   const n = Number(params.get('n') ?? 1);
-  console.log("n", n);
   if (n < 1 || isNaN(n)) {
     return Response.json("Number of scrambles must be at least 1", {
       status: 400
