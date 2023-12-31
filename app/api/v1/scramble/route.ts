@@ -22,20 +22,20 @@ export function GET(request: NextRequest) {
     });
   }
 
-  const scrambles = Array.from({length: n}, () => {
-    let lastFace = '';
+  return Response.json(Array.from({ length: n }, () => scramble()));
+}
 
-    return Array.from({length: scrambleLines}, () => {
-      const faceMoveOutput = scrFaces(lastFace);
-      lastFace = faceMoveOutput.lastMove;
-      const cornerMoves = scrCorners();
-      const edgeMoves = scrEdges();
+function scramble(): string[] {
+  let lastFace = '';
 
-      return [...faceMoveOutput.moves, '', ...cornerMoves, '', ...edgeMoves].join(' ');
-    });
-  })
-  
-  return Response.json(scrambles);
+  return Array.from({ length: scrambleLines }, () => {
+    const faceMoveOutput = scrFaces(lastFace);
+    lastFace = faceMoveOutput.lastMove;
+    const cornerMoves = scrCorners();
+    const edgeMoves = scrEdges();
+
+    return [...faceMoveOutput.moves, '', ...cornerMoves, '', ...edgeMoves].join(' ');
+  });
 }
 
 function scrFaces(lastMove: string): FaceScrOutput {
@@ -80,7 +80,7 @@ function nUniqueRandomInts(max: number, n: number): number[] {
     return [];
   }
 
-  const nArray = Array.from({length: max}, (_, i) => i) // lazy way to create [0, 1, ..., n]
+  const nArray = Array.from({ length: max }, (_, i) => i) // lazy way to create [0, 1, ..., n]
   return shuffle(nArray) // randomize indices
     .slice(0, n) // get first n
     .toSorted((a, b) => a - b); // sort in ascending order
