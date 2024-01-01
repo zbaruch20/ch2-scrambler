@@ -10,7 +10,6 @@ async function handleScrambles(data: FormData, setScrambles: SetScramblesFunc) {
   const n = data.get('nInput');
   const path = `${protocol}/${host}/api/v1/scramble?n=${n}`;
 
-  console.log("calling handle scrambles");
   setScrambles((await getScrambles(path)));
 }
 

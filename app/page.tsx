@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ScrambleInput from "./components/scramble-input";
+import ScrambleDisplay from "./components/scramble-display";
 
 export default function Home() {
   const [scrambles, setScrambles] = useState<string[][]>([]);
@@ -10,9 +11,7 @@ export default function Home() {
       <h1>Corner Helicopter 2x2 Scrambler</h1>
 
       <ScrambleInput setScrambles={setScrambles} />
-      <ol>
-        {scrambles.map(s => (<li>{s.map(line => (<>{line}<br/></>))}</li>))}
-      </ol>
+      <ScrambleDisplay scrambles={scrambles} />
     </main>
   );
 }
