@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
 import BootstrapClient from './components/bootstrap-client'
 import Header from './components/header'
+import Footer from './components/footer'
 
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Footer />
         <BootstrapClient />
       </body>
     </html>
