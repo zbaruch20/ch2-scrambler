@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import 'bootstrap/dist/css/bootstrap.css'
 import './globals.css'
 import BootstrapClient from './components/bootstrap-client'
+import Header from './components/header'
 
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header />
         {children}
         <BootstrapClient />
       </body>

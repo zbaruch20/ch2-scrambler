@@ -10,17 +10,17 @@ async function handleScrambles(data: FormData, setScrambles: SetScramblesFunc) {
   const n = data.get('nInput');
   const path = `${protocol}/${host}/api/v1/scramble?n=${n}`;
 
-  setScrambles((await getScrambles(path)));
+  !!n && setScrambles((await getScrambles(path)));
 }
 
 export default function ScrambleInput({ setScrambles }: ScrambleInputProps) {
   return (
     <form action={(data) => handleScrambles(data, setScrambles)}>
-      <div>
-        <label htmlFor="nInput">Number of scrambles: </label>
-        <input type="number" name="nInput" min="1"></input>
+      <div className="mt-4">
+        <label htmlFor="nInput">Number of scrambles:</label>
+        <input type="number" name="nInput" min="1" className="mx-2" />
       </div>
-      <div>
+      <div className="mb-4">
         <Button type="submit" variant="primary">Scramble</Button>
       </div>
     </form>

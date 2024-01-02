@@ -19,7 +19,7 @@ export default function ScrambleDisplay({ scrambles }: ScrambleDisplayProps) {
           </ListGroup>
         </Col>
         <Col>
-          <div hidden={scrambles.length === 0}>
+          <div hidden={scrambles.length === 0} className="mx-4">
             <OverlayTrigger
               placement="bottom"
               trigger="focus"
