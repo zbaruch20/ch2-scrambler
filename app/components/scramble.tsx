@@ -3,7 +3,7 @@ export interface ScrambleProps {
 }
 
 export default function Scramble({ scrambleLines }: ScrambleProps) {
-  return scrambleLines.map(line => (
-    <p className="mb-0 mx-4">{line}</p>
+  return scrambleLines.map((line, i) => (
+    <p key={i} className="mb-0 mx-4">{line}</p>
   ))
 }

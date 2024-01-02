@@ -11,8 +11,8 @@ export default function ScrambleDisplay({ scrambles }: ScrambleDisplayProps) {
       <Row>
         <Col className="justify-content-start">
           <ListGroup as="ol" numbered>
-            {scrambles.map(scr => (
-              <ListGroupItem as="li" className="mx-4" action>
+            {scrambles.map((scr, i) => (
+              <ListGroupItem key={i} as="li" className="mx-4" action>
                 <br />
                 <Scramble scrambleLines={scr} />
               </ListGroupItem>))}
